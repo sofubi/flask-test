@@ -19,7 +19,7 @@ services:
 
   worker:
     labels:
-      shipyard.before: 'sleep 300 && poetry run flask db upgrade'
+      shipyard.before: 'sh -c poetry run flask db upgrade'
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
