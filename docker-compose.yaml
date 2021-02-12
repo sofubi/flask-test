@@ -5,6 +5,7 @@ services:
   web:
     labels:
       shipyard.route: '/'
+      shipyard.init: 'echo "test"'
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
