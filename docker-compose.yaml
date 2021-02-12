@@ -5,7 +5,7 @@ services:
   web:
     labels:
       shipyard.route: '/'
-      shipyard.init: 'echo "test"'
+      shipyard.init: 'curl -o text.txt example.com'
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
