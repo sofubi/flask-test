@@ -5,12 +5,12 @@ services:
   web:
     labels:
       shipyard.route: '/'
-      shipyard.init: 'curl -o text.txt example.com'
     build: '.'
     environment:
       DATABASE_URL: 'postgres://obscure-user:obscure-password@postgres/app'
       DEV: ${DEV}
       FLASK_DEBUG: '1'
+    entrypoint: /bin/bash
     volumes:
       - './filesystem/entrypoints:/entrypoints:ro'
       - './migrations:/srv/migrations'
