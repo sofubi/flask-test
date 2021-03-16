@@ -1,9 +1,9 @@
-FROM python:3.8-alpine3.11
+FROM python:3.8.8-alpine3.13
 
 WORKDIR /srv
 
 # Install system dependencies for: uWSGI, poetry, watchman
-RUn apk add --update --no-cache \
+RUN apk add --update --no-cache \
       gcc \
       libc-dev \
       libffi-dev \
@@ -28,6 +28,8 @@ RUn apk add --update --no-cache \
     #make && \
     #make install && \
     #cd .. && rm -rf watchman
+
+ENV CRYPTOGRAPHY_DONT_BUILD_RUST=1
 
 # Install poetry
 RUN pip install poetry
